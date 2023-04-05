@@ -1,0 +1,1 @@
+<input {{ $attributes->merge(['type' => 'file', 'class' => 'w-full cursor-pointer file:cursor-pointer file:border-0 file:bg-gray-900 file:text-white file:rounded-t-sm file:p-2 border-0 border-b-2 border-b-gray-900 bg-transparent text-gray-900 text-lg placeholder:text-gray-900/75 file:hover:bg-gray-200 file:hover:text-gray-900']) }}>
