@@ -27,59 +27,7 @@
     </div>
 
     {{-- General Information --}}
-    <div class="bg-primary text-white p-20 lg:px-20 px-6" id="generalInformation">
-        <div class="max-w-7xl mx-auto">
-            <div class="space-y-8">
-                <h1 class="font-bold text-4xl">{{ __('General information') }}</h1>
-                <p class="text-lg">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur gravida diam sit amet quam
-                    sodales
-                    lobortis. Vestibulum scelerisque viverra nisl. Maecenas elementum turpis pellentesque massa iaculis,
-                    sit
-                    amet euismod quam volutpat. Phasellus efficitur, dui eu efficitur auctor, tellus elit consequat
-                    elit,
-                    sed ultricies nisi massa ut velit. Mauris aliquam nisl et scelerisque lacinia. Aenean sit amet velit
-                    eu
-                    turpis congue ultrices sed nec nunc. Vestibulum ante ipsum primis in faucibus orci luctus et
-                    ultrices
-                    posuere cubilia curae; Maecenas sed lacus eu elit varius dapibus. Mauris quis est facilisis, mattis
-                    justo eget,
-                    sollicitudin tellus. Cras consequat aliquam ipsum eget porttitor. Integer vel elit bibendum, semper
-                    lectus sed, dictum justo. Maecenas id sodales mi.
-
-                    Cras elementum non eros vitae tincidunt. Vivamus risus odio, consequat vitae lectus non, pulvinar
-                    gravida nibh. Aenean pretium at felis sit amet rutrum. Nunc convallis porta malesuada. Aliquam et
-                    fringilla ante. Aenean ac consectetur dolor, ut dapibus lorem. Donec massa diam, posuere eget purus
-                    ac,
-                    lacinia
-                    ultrices libero. Nam vel elit sit amet leo sollicitudin posuere. Vestibulum ut ligula egestas,
-                    iaculis
-                    metus in,
-                    interdum erat. Suspendisse at sollicitudin ante. Sed justo ante, fringilla non lectus sed,
-                    condimentum
-                    eleifend arcu. Donec ut orci ante.
-                </p>
-                <p class="text-lg">
-                    Duis porttitor elementum lectus dignissim tempor. Proin sodales, enim ac tincidunt tempor, arcu dui
-                    placerat erat, in rutrum purus magna non neque. Integer quis sollicitudin risus, ac placerat quam.
-                    Vivamus fringilla leo ac libero suscipit rhoncus. Curabitur tincidunt massa sed diam porta porta.
-                    Maecenas
-                    facilisis leo nec tellus convallis placerat. Phasellus risus urna, dignissim eu nisi nec, consequat
-                    convallis nisi.
-                    Pellentesque id venenatis est, vel egestas turpis. Mauris tincidunt ut dui a ultrices. Donec dictum
-                    eget
-                    arcu eu hendrerit. Nullam dictum egestas elementum. Duis aliquam a ligula vulputate suscipit. Fusce
-                    et
-                    mattis risus. Curabitur lorem ante, pretium quis lorem id, ultricies dapibus magna. Morbi ultrices
-                    commodo urna vitae luctus. Pellentesque quis quam augue. Ut quis quam tempor, sodales risus a,
-                    rutrum
-                    erat. Aenean massa odio, varius quis turpis ac, volutpat blandit nisi. Aenean placerat bibendum nibh
-                    sed
-                    molestie. Aenean convallis sapien non arcu vehicula, ac ultrices tortor lobortis.
-                </p>
-            </div>
-        </div>
-    </div>
+    <x-section.general-information></x-section.general-information>
 
     {{-- Assignment --}}
     <div class="text-gray-900 p-20 lg:px-20 px-6" id="assignment">
@@ -115,14 +63,7 @@
             </x-form>
         </div>
     </div>
-    <div class="w-full bg-primary p-6 text-white">
-        <div class="py-10 px-20 gap-8">
-            <div class="space-y-1" id="contact">
-                <h3 class="text-4xl font-bold">{{ __('Contact') }}</h3>
-                <x-contact :for="__('Email')">impressitaat@noorderpoort.nl</x-contact>
-                <x-contact :for="__('Phone number')">06 123456789</x-contact>
-                <x-contact :for="__('Location')">Groningen, Groningen Melkweg 2</x-contact>
-            </div>
-        </div>
-    </div>
+
+    {{-- Footer --}}
+    <x-section.footer></x-section.footer>
 </x-guest-layout>

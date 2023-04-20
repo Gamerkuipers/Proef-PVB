@@ -18,7 +18,7 @@ class ContactDetailsFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'link' => $this->faker->url(),
+            'content' => $this->faker->url(),
         ];
     }
 }

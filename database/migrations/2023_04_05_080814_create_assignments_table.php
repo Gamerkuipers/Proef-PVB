@@ -17,10 +17,11 @@ return new class extends Migration
             $table->text('company_description');
             $table->string('name');
             $table->text('description');
-            $table->string('examples');
+            $table->string('examples')->nullable();
             $table->string('target_audience');
             $table->timestamp('deadline');
             $table->string('email');
+            $table->string('status');
             $table->json('phone_numbers');
             $table->timestamps();
         });
