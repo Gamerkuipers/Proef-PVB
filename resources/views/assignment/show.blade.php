@@ -42,7 +42,7 @@
             </x-dashboard.section>
             <x-dashboard.section>
                 <x-dashboard.text-label>{{ __('Phone number') }}</x-dashboard.text-label>
-                <x-dashboard.text>{{ $assignment->phone_numbers }}</x-dashboard.text>
+                <x-dashboard.text>{{ $assignment->getPhoneNumbersString() }}</x-dashboard.text>
             </x-dashboard.section>
             <x-dashboard.section>
                 <x-dashboard.text-label>{{ __('About the company') }}</x-dashboard.text-label>

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\AssignmentStatusses;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -25,7 +26,12 @@ class AssignmentFactory extends Factory
             'description' => $this->faker->paragraphs(2, true),
             'target_audience' => $this->faker->word(),
             'deadline' => $this->faker->dateTime(),
-            'phone_numbers' => $this->faker->phoneNumber()
+            'phone_numbers' => $this->faker->randomElements([
+                $this->faker->phoneNumber(),
+                $this->faker->phoneNumber(),
+                $this->faker->phoneNumber(),
+            ],rand(1,3)),
+            'status' => $this->faker->randomElement(AssignmentStatusses::cases())->name,
         ];
     }
 }

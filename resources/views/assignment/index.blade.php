@@ -33,10 +33,15 @@
                     {{ $assignment->email }}
                 </x-table.cell>
                 <x-table.cell>
-                    {{ $assignment->phone_numbers }}
+                    {{ $assignment->phone_numbers->first() }}
+                    @if($assignment->phone_numbers->count() > 1)
+                        <span class="text-sm text-blue-500 underline">
+                            +{{ $assignment->phone_numbers->count()-1 }}
+                        </span>
+                    @endif
                 </x-table.cell>
                 <x-table.cell>
-                    status
+                    {{ $assignment->getStatus() }}
                 </x-table.cell>
             </x-table.row>
         @endforeach

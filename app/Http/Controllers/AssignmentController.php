@@ -11,7 +11,7 @@ class AssignmentController extends Controller
     public function index(): View
     {
         return view('assignment.index', [
-            'assignments' => Assignment::paginate()
+            'assignments' => Assignment::orderByDesc('created_at')->paginate()
         ]);
     }
 
