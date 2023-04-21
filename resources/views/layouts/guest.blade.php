@@ -15,9 +15,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
-<body class="font-sans text-gray-900 antialiased">
-<x-nav></x-nav>
-<div class="min-h-screen scroll-smooth">
+<body class="font-sans text-gray-900 antialiased scroll-smooth">
+<x-nav/>
+<div class="min-h-screen">
     {{ $slot }}
 </div>
 @livewireScripts

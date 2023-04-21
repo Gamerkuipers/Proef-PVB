@@ -15,7 +15,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased scroll-smooth">
 <div class="min-h-screen bg-gray-100 grid grid-cols-4 sm:grid-cols-10 md:grid-cols-12 xl:grid-cols-6">
 
     <x-nav.dashboard class="col-span-1"/>

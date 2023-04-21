@@ -17,7 +17,7 @@
     </nav>
 
     {{-- Mobile --}}
-    <div class="fixed top-0 flex xl:hidden w-full h-20 bg-white/50 backdrop-blur-sm z-10" x-data="{open: false}">
+    <div class="fixed top-0 flex xl:hidden w-full h-20 bg-white/50 backdrop-blur-sm z-50" x-data="{open: false}">
         <div class="p-2">
             <x-application-logo class="h-full py-2"/>
         </div>
