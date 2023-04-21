@@ -1,4 +1,4 @@
-<div class="rounded-md overflow-hidden">
+<div class="rounded-md overflow-x-auto">
     <div class="table w-full">
         @isset($head)
             <div class="table-header-group text-white">

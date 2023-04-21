@@ -1,1 +1,1 @@
-<label {{ $attributes->merge(['class' => 'font-medium text-xl']) }}>{{ ucfirst($slot) }}</label>
+<label {{ $attributes->merge(['class' => 'font-medium text-base lg:text-xl']) }}>{{ ucfirst($slot) }}</label>

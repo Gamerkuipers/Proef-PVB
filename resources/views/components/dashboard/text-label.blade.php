@@ -1,4 +1,4 @@
 @props([
     'value'
 ])
-<span {{ $attributes->class(['text-xl font-medium']) }}>{{ $value ?? $slot }}</span>
+<span {{ $attributes->class(['lg:text-xl text-lg font-medium']) }}>{{ $value ?? $slot }}</span>

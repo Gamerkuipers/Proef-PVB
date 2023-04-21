@@ -1,5 +1,5 @@
 <sidebar>
-    <div class="bg-primary/25 col-span-1 xl:p-8 p-2 xl:space-y-4 text-2xl h-full w-fit">
+    <div {{ $attributes->class(['bg-primary/25 xl:p-8 p-2 xl:space-y-4 text-2xl h-full w-fit']) }}>
         <h2 class="text-4xl font-semibold hidden xl:block">
             {{ __('Dashboard') }}
         </h2>

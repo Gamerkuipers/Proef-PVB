@@ -5,7 +5,7 @@
 ])
 <a {{ $attributes->class([
     'text-gray-900/40 w-fit hover:text-primary cursor-pointer flex items-center gap-x-1 p-2',
-    'text-primary xl:border-b-2 border-b-primary' => $active
+    'text-primary xl:!border-b-2 xl:!border-b-primary' => $active
     ]) }} href="{{ $href }}">
     @isset($icon)
         <div>
