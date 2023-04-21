@@ -17,12 +17,8 @@
 </head>
 <body class="font-sans antialiased">
 <div class="min-h-screen bg-gray-100 grid grid-cols-6">
-    <sidebar class="bg-primary/25 col-span-1 p-8 space-y-4 text-2xl">
-        <h2 class="text-4xl font-semibold">
-            {{ __('Dashboard') }}
-        </h2>
-        <x-nav.dashboard/>
-    </sidebar>
+
+    <x-nav.dashboard/>
 
     <div class="col-span-5">
         <div class="p-12">

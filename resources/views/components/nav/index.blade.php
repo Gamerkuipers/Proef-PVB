@@ -1,4 +1,5 @@
 <div>
+    {{-- Lg screen --}}
     <nav class="fixed top-0 bg-white/50 w-full h-20 z-50 px-10 xl:flex justify-between backdrop-blur-sm hidden">
         <div>
             <x-application-logo class="h-full py-2"/>
@@ -15,6 +16,7 @@
         </div>
     </nav>
 
+    {{-- Mobile --}}
     <div class="fixed top-0 flex xl:hidden w-full h-20 bg-white/50 backdrop-blur-sm z-10" x-data="{open: false}">
         <div class="p-2">
             <x-application-logo class="h-full py-2"/>
