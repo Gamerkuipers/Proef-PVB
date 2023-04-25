@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\AssignmentStatusses;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Assignment extends Model
 {
@@ -27,6 +28,11 @@ class Assignment extends Model
         'deadline' => 'date',
         'phone_numbers' => 'collection'
     ];
+
+    public function assigneds(): HasMany
+    {
+        return $this->hasMany(Assigned::class);
+    }
 
     public function getPhoneNumbersString(): string
     {

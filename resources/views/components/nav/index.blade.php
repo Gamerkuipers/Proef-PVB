@@ -18,7 +18,7 @@
 
     {{-- Mobile --}}
     <div class="fixed top-0 flex xl:hidden w-full h-20 bg-white/50 backdrop-blur-sm z-50" x-data="{open: false}">
-        <div class="p-2">
+        <div class="p-2 min-w-fit">
             <x-application-logo class="h-full py-2"/>
         </div>
         <div class="w-full flex justify-end px-10 my-auto group z-20">

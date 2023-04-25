@@ -18,7 +18,7 @@
 <body class="font-sans antialiased scroll-smooth">
 <div class="min-h-screen bg-gray-100 grid grid-cols-4 sm:grid-cols-10 md:grid-cols-12 xl:grid-cols-6">
 
-    <x-nav.dashboard class="col-span-1"/>
+    <x-nav.dashboard class="col-span-1 fixed"/>
 
     <div class="col-span-3 sm:col-span-9 md:col-span-11 xl:col-span-5">
         <div class="xl:p-12 py-12 px-4 md:px-6">

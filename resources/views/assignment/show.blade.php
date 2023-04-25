@@ -50,4 +50,5 @@
             </x-dashboard.section>
         </x-dashboard.field>
     </div>
+    <livewire:assignment.students :assignment="$assignment"></livewire:assignment.students>
 </x-app-layout>
