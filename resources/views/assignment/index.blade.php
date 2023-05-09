@@ -2,6 +2,7 @@
     <x-slot:title>
         {{ __('Assignments') }}
     </x-slot:title>
+
     <x-table>
         <x-slot:head>
             <x-table.cell-head>

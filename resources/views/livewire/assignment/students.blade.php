@@ -57,7 +57,7 @@
                 </x-table.cell-head>
             </x-slot:head>
             @foreach($assigneds as $assigned)
-                <x-table.row>
+                <x-table.row class="!cursor-default">
                     <x-table.cell>
                         {{ $assigned->student }}
                     </x-table.cell>
@@ -88,7 +88,7 @@
                     <x-table.cell>
                         @can('deleteStudent', $assignment)
                             <x-icon.trash wire:click="deleteStudent({{ $assigned }})"
-                                          class="mx-auto text-red-600 group-hover:text-white"></x-icon.trash>
+                                          class="mx-auto text-red-600 group-hover:text-white cursor-pointer"></x-icon.trash>
                         @endcan
                     </x-table.cell>
                 </x-table.row>

@@ -43,4 +43,9 @@ class Assignment extends Model
     {
         return __(constant("App\Enums\AssignmentStatusses::{$this->status}")->value);
     }
+
+    public function logs(): HasMany
+    {
+        return $this->hasMany(AssignmentLog::class);
+    }
 }
