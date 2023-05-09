@@ -21,7 +21,7 @@ class AssignmentFactory extends Factory
             'company_name' => $this->faker->company(),
             'company_description' => $this->faker->paragraph(),
             'email' => $this->faker->companyEmail(),
-            'examples' => $this->faker->url(),
+            'examples' => [$this->faker->url(), $this->faker->url()],
             'name' => $this->faker->word(),
             'description' => $this->faker->paragraphs(2, true),
             'target_audience' => $this->faker->word(),

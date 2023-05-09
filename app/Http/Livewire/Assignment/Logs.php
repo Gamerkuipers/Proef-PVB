@@ -21,7 +21,7 @@ class Logs extends Component
     public function render(): View
     {
         return view('livewire.assignment.logs', [
-            'logs' => $this->assignment->logs()->orderByDesc('created_at')->paginate(10),
+            'logs' => $this->assignment->logs()->orderByDesc('created_at')->paginate(5),
         ]);
     }
 

@@ -3,31 +3,34 @@
         <div class="grid lg:grid-cols-2 lg:w-full gap-8">
             <x-form.section>
                 <x-form.input-cluster for="assignment.company_name" :label="__('Company Name')"
-                                      wire:model="assignment.company_name"
+                                      wire:model.lazy="assignment.company_name"
                                       :placeholder="__('The name of the company')"/>
                 <x-form.textarea-cluster for="assignment.company_description" :label="__('About the company')"
-                                         wire:model="assignment.company_description"
+                                         wire:model.lazy="assignment.company_description"
                                          :placeholder="__('Tell something about your company')"/>
                 <x-form.input-cluster for="assignment.email" :label="__('Email')" :placeholder="__('Email')"
-                                      wire:model="assignment.email"/>
+                                      wire:model.lazy="assignment.email"/>
                 <x-form.input-cluster for="assignment.phone_numbers.*" :label="__('Phone number')"
-                                      wire:model="assignment.phone_numbers"
+                                      wire:model.lazy="assignment.phone_numbers"
                                       :placeholder="__('Phone number')"/>
-                <x-form.file-cluster for="existingFiles" :label="__('Existing files')" type="file" multiple
+                <x-form.file-cluster for="existingFiles" :label="__('Images/Logos')" type="file" multiple wire:model="images"
                                      accept="image/jpeg, image/png, image/svg+xml"></x-form.file-cluster>
             </x-form.section>
             <x-form.section>
                 <x-form.input-cluster for="assignment.name" :label="__('Project name')"
-                                      wire:model="assignment.name"
+                                      wire:model.lazy="assignment.name"
                                       :placeholder="__('Target name')"/>
                 <x-form.input-cluster for="assignment.target_audience" :label="__('Target audience')"
-                                      wire:model="assignment.target_audience"
+                                      wire:model.lazy="assignment.target_audience"
                                       :placeholder="__('Target audience')"/>
                 <x-form.textarea-cluster for="assignment.description" :label="__('Assignment description')"
-                                         wire:model="assignment.description"
+                                         wire:model.lazy="assignment.description"
                                          :placeholder="__('A description about the assignment')"/>
-                <x-form.input-cluster type="date" for="assignment.deadline" :label="__('Dead line')"
-                                      wire:model="assignment.deadline"
+                <x-form.textarea-cluster for="assignment.examples" :label="__('Example Website')"
+                                         wire:model.lazy="assignment.examples"
+                                         :placeholder="__('Separate links by using a comma , eg: https://first-link.com, https://another-link.com')"/>
+                <x-form.input-cluster type="date" for="deadline" :label="__('Dead line')"
+                                      wire:model.lazy="deadline"
                                       min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}"></x-form.input-cluster>
             </x-form.section>
         </div>

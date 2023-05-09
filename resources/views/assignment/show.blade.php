@@ -56,6 +56,32 @@
                 <livewire:assignment.status :assignment="$assignment"/>
             </x-dashboard.section>
         </x-dashboard.field>
+        <x-dashboard.field class="col-span-3">
+            <x-dashboard.section>
+                <x-dashboard.text-label>{{ __('Examples') }}</x-dashboard.text-label>
+
+                <div class="space-y-1 flex flex-col">
+                    @foreach($assignment->examples as $example)
+                        <a class="text-blue-500 underline select-none" target="_blank"
+                           href="{{ $example }}">{{ $example }}</a>
+                    @endforeach
+                </div>
+            </x-dashboard.section>
+        </x-dashboard.field>
+        <x-dashboard.field class="col-span-3">
+            <x-dashboard.section>
+                <x-dashboard.text-label>{{ __('Files') }}</x-dashboard.text-label>
+
+                <div class="grid grid-flow-col gap-x-4 overflow-auto w-full sm:w-96">
+                    @foreach($assignment->getImages() as $image)
+                        <a href="{{ asset("storage/$image") }}" target="_blank"
+                           class="cursor-pointer w-32">
+                            <img src="{{ asset("storage/$image") }}" alt="">
+                        </a>
+                    @endforeach
+                </div>
+            </x-dashboard.section>
+        </x-dashboard.field>
     </div>
     <livewire:assignment.students :assignment="$assignment"></livewire:assignment.students>
     <livewire:assignment.logs :assignment="$assignment"></livewire:assignment.logs>

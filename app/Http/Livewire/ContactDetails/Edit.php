@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\ContactDetails;
 
 use App\Actions\ContactDetails\UpdateContactDetails;
+use App\Http\Livewire\Traits\WithAlerts;
 use App\Models\ContactDetails;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
@@ -13,6 +14,8 @@ use Livewire\Redirector;
 
 class Edit extends Component
 {
+    use WithAlerts;
+
     public Collection $contactDetails;
 
     protected $rules = [
@@ -36,9 +39,10 @@ class Edit extends Component
 
         if($updater->updateMany($this->contactDetails))
         {
-            return to_route('contactDetails.index');
+            return $this->flashSuccess(route('contactDetails.index'), __('Contact details saved'));
         }
 
+        $this->alertError(__('Failed to save contact details'));
         return $this->addError('general', __('Something went wrong. Try again later.'));
     }
 }

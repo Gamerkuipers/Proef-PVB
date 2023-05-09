@@ -42,7 +42,7 @@
                     @endif
                 </x-table.cell>
                 <x-table.cell>
-                    {{ $assignment->getStatus() }}
+                    {{ $assignment->status }}
                 </x-table.cell>
             </x-table.row>
         @endforeach

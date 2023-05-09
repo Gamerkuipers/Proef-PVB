@@ -4,20 +4,20 @@ namespace App\Http\Livewire\Assignment;
 
 use App\Actions\Assignment\AddStudentToAssignment;
 use App\Actions\Assignment\DeleteStudentFromAssignment;
+use App\Http\Livewire\Traits\WithAlerts;
 use App\Models\Assigned;
 use App\Models\Assignment;
 use Carbon\Carbon;
 use Exception;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\MessageBag;
 use Illuminate\View\View;
 use Livewire\Component;
-use Livewire\Redirector;
 use Livewire\WithPagination;
 
 class Students extends Component
 {
-    use WithPagination;
+    use WithPagination,
+        WithAlerts;
 
     public Assignment $assignment;
 
@@ -40,7 +40,7 @@ class Students extends Component
     public function render(): View
     {
         return view('livewire.assignment.students', [
-            'assigneds' => $this->assignment->assigneds()->orderByDesc('created_at')->paginate()
+            'assigneds' => $this->assignment->assigneds()->orderByDesc('created_at')->paginate(5)
         ]);
     }
 
@@ -83,15 +83,17 @@ class Students extends Component
             $this->start_date,
             $this->end_date
         )) {
+            $this->alertSuccess(__('added student: :name', ['name' => $this->student]));
+
             $this->reset([
                 'student',
             ]);
 
             $this->setDates();
 
-            // send alert
             return null;
         }
+        $this->alertError(__('Something went wrong. Try again later'));
         return $this->addError('general', __('Something went wrong. Try again later'));
     }
 

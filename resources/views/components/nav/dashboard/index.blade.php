@@ -11,7 +11,7 @@
                     </x-slot:icon>
                     {{ __('Assignments') }}
                 </x-nav.dashboard.item>
-                <x-nav.dashboard.item>
+                <x-nav.dashboard.item route="post.index">
                     <x-slot:icon>
                         <x-icon.posts class="h-7 w-7"></x-icon.posts>
                     </x-slot:icon>

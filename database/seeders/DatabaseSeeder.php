@@ -36,14 +36,20 @@ class DatabaseSeeder extends Seeder
         $assignments = Assignment::factory(30)->create();
 
         // assign test students to the test assignments
-        Assigned::factory(30)->create([
-            'assignment_id' => $assignments->random()->first()->id,
-        ]);
+        foreach($assignments as $assignment) {
+            Assigned::factory(3)->create([
+                'assignment_id' => $assignment->id,
+            ]);
+        }
+
 
         // seed fake logs for assignments
-        AssignmentLog::factory(30)->create([
-            'assignment_id' => $assignments->random()->first()->id,
-        ]);
+        foreach($assignments as $assignment) {
+            AssignmentLog::factory(3)->create([
+                'assignment_id' => $assignment->id,
+            ]);
+        }
+
 
         // seed test contact details
         ContactDetails::factory(3)->create();

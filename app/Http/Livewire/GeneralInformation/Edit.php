@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\GeneralInformation;
 
 use App\Actions\GeneralInformation\UpdateGeneralInformation;
+use App\Http\Livewire\Traits\WithAlerts;
 use App\Models\WebContent;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\MessageBag;
@@ -12,6 +13,8 @@ use Livewire\Redirector;
 
 class Edit extends Component
 {
+    use WithAlerts;
+
     public WebContent $generalInformation;
 
     protected $rules = [
@@ -34,9 +37,10 @@ class Edit extends Component
         $this->validate();
 
         if($updater->update($this->generalInformation)) {
-            return to_route('generalInformation.index');
+            return $this->flashSuccess(route('generalInformation.index'), __('General information saved'));
         };
 
+        $this->alertError(__('Failed to save general information'));
         return $this->addError('general', __('Something went wrong. Try again later.'));
     }
 }

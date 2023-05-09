@@ -3,30 +3,49 @@
 namespace App\Http\Livewire\Assignment;
 
 use App\Actions\Assignment\CreateAssignment;
-use App\Enums\AssignmentStatusses;
+use App\Http\Livewire\Traits\WithAlerts;
 use App\Models\Assignment;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Create extends Component
 {
+    use WithFileUploads,
+        WithAlerts;
+
     public Assignment $assignment;
+
+    public string $deadline = '';
+
+    public $images = [];
 
     protected $rules = [
         'assignment.name' => ['required', 'string', 'max:255'],
         'assignment.target_audience' => ['required', 'string', 'max:255'],
         'assignment.description' => ['required', 'string'],
-        'assignment.deadline' => ['required', 'string', 'date'],
+        'deadline' => ['required', 'date'],
         'assignment.company_name' => ['required', 'string', 'max:255'],
         'assignment.company_description' => ['required', 'string'],
         'assignment.email' => ['required', 'email'],
         'assignment.phone_numbers.*' => ['required', 'string', 'max:255'],
+        'assignment.examples.*' => ['string'],
+        'images.*' => ['image', 'max:2048']
     ];
 
     public function render(): View
     {
         return view('livewire.assignment.create');
+    }
+
+    public function updatedImages()
+    {
+        $this->validateOnly('images');
+    }
+
+    public function updatedDeadline()
+    {
+        $this->assignment->deadline = $this->deadline;
     }
 
     public function mount(): void
@@ -37,6 +56,7 @@ class Create extends Component
     private function resetAssignment(): void
     {
         $this->assignment = Assignment::make();
+        $this->reset(['images', 'deadline']);
     }
 
     public function save(CreateAssignment $creator)
@@ -44,11 +64,18 @@ class Create extends Component
         $this->validate();
 
         if($creator->create($this->assignment)) {
-            // do an alert
 
+            foreach($this->images as $image) {
+                $image->store("public/{$this->assignment->id}");
+            }
+
+            $this->alertSuccess(__('Assignment received'));
             $this->resetAssignment();
+
+            return;
         };
 
         $this->addError('general', __('Something went wrong. Try again later.'));
+        $this->alertError(__('Something went wrong. Try again later.'));
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Assignment;
 
 use App\Actions\Assignment\ChangeStatusOfAssignment;
 use App\Enums\AssignmentStatusses;
+use App\Http\Livewire\Traits\WithAlerts;
 use App\Models\Assignment;
 use Illuminate\Validation\Rules\Enum;
 use Illuminate\View\View;
@@ -11,6 +12,8 @@ use Livewire\Component;
 
 class Status extends Component
 {
+    use WithAlerts;
+
     public Assignment $assignment;
 
     protected function rules()
@@ -31,6 +34,11 @@ class Status extends Component
 
         if((new ChangeStatusOfAssignment)->change($this->assignment, $value)) {
             $this->emit('addedStatus');
+            $this->alertSuccess(__('New Status: :status', ['status' => $value]));
+
+            return;
         }
+
+        $this->alertError(__('Failed to update status'));
     }
 }

@@ -6,6 +6,7 @@ use App\Enums\AssignmentStatusses;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 
 class Assignment extends Model
 {
@@ -26,7 +27,8 @@ class Assignment extends Model
 
     protected $casts = [
         'deadline' => 'date',
-        'phone_numbers' => 'collection'
+        'phone_numbers' => 'collection',
+        'examples' => 'collection',
     ];
 
     public function assigneds(): HasMany
@@ -39,13 +41,13 @@ class Assignment extends Model
         return $this->phone_numbers->join(', ');
     }
 
-    public function getStatus(): string
-    {
-        return __(constant("App\Enums\AssignmentStatusses::{$this->status}")->value);
-    }
-
     public function logs(): HasMany
     {
         return $this->hasMany(AssignmentLog::class);
+    }
+
+    public function getImages()
+    {
+        return Storage::disk('public')->files($this->id);
     }
 }

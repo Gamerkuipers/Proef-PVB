@@ -35,65 +35,67 @@
         </div>
 
 
-        <x-table>
-            <x-slot:head>
-                <x-table.cell-head>
-                    {{ __('Name') }}
-                </x-table.cell-head>
-                <x-table.cell-head>
-                    {{ __('Start Date') }}
-                </x-table.cell-head>
-                <x-table.cell-head>
-                    {{ __('End Date') }}
-                </x-table.cell-head>
-                <x-table.cell-head>
-                    {{ __('Time Till Start') }}
-                </x-table.cell-head>
-                <x-table.cell-head>
-                    {{ __('Time Left') }}
-                </x-table.cell-head>
-                <x-table.cell-head class="text-center">
-                    {{ __('Action') }}
-                </x-table.cell-head>
-            </x-slot:head>
-            @foreach($assigneds as $assigned)
-                <x-table.row class="!cursor-default">
-                    <x-table.cell>
-                        {{ $assigned->student }}
-                    </x-table.cell>
-                    <x-table.cell>
-                        {{ $assigned->formatDate($assigned->start_date) }}
-                    </x-table.cell>
-                    <x-table.cell>
-                        {{ $assigned->formatDate($assigned->end_date) }}
-                    </x-table.cell>
-                    <x-table.cell>
-                        @if($assigned->start_date->gt(\Carbon\Carbon::now()))
-                            {{ $assigned->start_date->diffForHumans() }}
-                        @elseif($assigned->end_date->gt(\Carbon\Carbon::now()))
-                            {{ __('Started') }}
-                        @else
-                            {{ __('Ended') }}
-                        @endif
-                    </x-table.cell>
-                    <x-table.cell>
-                        @if($assigned->end_date->isFuture() && \Carbon\Carbon::now()->gt($assigned->start_date))
-                            {{ $assigned->end_date->diffForHumans() }}
-                        @elseif($assigned->start_date->gt(\Carbon\Carbon::now()))
-                            {{ __('Not started yet.') }}
-                        @else
-                            {{ __('Ended') }}
-                        @endif
-                    </x-table.cell>
-                    <x-table.cell>
-                        @can('deleteStudent', $assignment)
-                            <x-icon.trash wire:click="deleteStudent({{ $assigned }})"
-                                          class="mx-auto text-red-600 group-hover:text-white cursor-pointer"></x-icon.trash>
-                        @endcan
-                    </x-table.cell>
-                </x-table.row>
-            @endforeach
-        </x-table>
-        {{ $assigneds->links() }}
+        @if($assigneds->isNotEmpty())
+            <x-table>
+                <x-slot:head>
+                    <x-table.cell-head>
+                        {{ __('Name') }}
+                    </x-table.cell-head>
+                    <x-table.cell-head>
+                        {{ __('Start Date') }}
+                    </x-table.cell-head>
+                    <x-table.cell-head>
+                        {{ __('End Date') }}
+                    </x-table.cell-head>
+                    <x-table.cell-head>
+                        {{ __('Time Till Start') }}
+                    </x-table.cell-head>
+                    <x-table.cell-head>
+                        {{ __('Time Left') }}
+                    </x-table.cell-head>
+                    <x-table.cell-head class="text-center">
+                        {{ __('Action') }}
+                    </x-table.cell-head>
+                </x-slot:head>
+                @foreach($assigneds as $assigned)
+                    <x-table.row class="!cursor-default">
+                        <x-table.cell>
+                            {{ $assigned->student }}
+                        </x-table.cell>
+                        <x-table.cell>
+                            {{ $assigned->formatDate($assigned->start_date) }}
+                        </x-table.cell>
+                        <x-table.cell>
+                            {{ $assigned->formatDate($assigned->end_date) }}
+                        </x-table.cell>
+                        <x-table.cell>
+                            @if($assigned->start_date->gt(\Carbon\Carbon::now()))
+                                {{ $assigned->start_date->diffForHumans() }}
+                            @elseif($assigned->end_date->gt(\Carbon\Carbon::now()))
+                                {{ __('Started') }}
+                            @else
+                                {{ __('Ended') }}
+                            @endif
+                        </x-table.cell>
+                        <x-table.cell>
+                            @if($assigned->end_date->isFuture() && \Carbon\Carbon::now()->gt($assigned->start_date))
+                                {{ $assigned->end_date->diffForHumans() }}
+                            @elseif($assigned->start_date->gt(\Carbon\Carbon::now()))
+                                {{ __('Not started yet.') }}
+                            @else
+                                {{ __('Ended') }}
+                            @endif
+                        </x-table.cell>
+                        <x-table.cell>
+                            @can('deleteStudent', $assignment)
+                                <x-icon.trash wire:click="deleteStudent({{ $assigned }})"
+                                              class="mx-auto text-red-600 group-hover:text-white cursor-pointer"></x-icon.trash>
+                            @endcan
+                        </x-table.cell>
+                    </x-table.row>
+                @endforeach
+            </x-table>
+            {{ $assigneds->links() }}
+        @endif
     </div>
 </div>

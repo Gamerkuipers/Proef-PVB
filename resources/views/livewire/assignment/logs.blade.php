@@ -11,32 +11,38 @@
         </span>
     </div>
     <div class="space-y-4" x-cloak x-show="isOpen">
-        <x-table>
-            <x-slot:head>
-                <x-table.cell-head>
-                    {{ __('Time') }}
-                </x-table.cell-head>
-                <x-table.cell-head>
-                    {{ __('Old Status') }}
-                </x-table.cell-head>
-                <x-table.cell-head>
-                    {{ __('New Status') }}
-                </x-table.cell-head>
-            </x-slot:head>
-            @foreach($logs as $log)
-                <x-table.row>
-                    <x-table.cell>
-                        {{ $log->created_at->format('Y-m-d H:i') }}
-                    </x-table.cell>
-                    <x-table.cell>
-                        {{ $log->old_status }}
-                    </x-table.cell>
-                    <x-table.cell>
-                        {{ $log->new_status }}
-                    </x-table.cell>
-                </x-table.row>
-            @endforeach
-        </x-table>
-        {{ $logs->links() }}
+        @if($logs->isNotEmpty())
+            <x-table>
+                <x-slot:head>
+                    <x-table.cell-head>
+                        {{ __('Time') }}
+                    </x-table.cell-head>
+                    <x-table.cell-head>
+                        {{ __('Old Status') }}
+                    </x-table.cell-head>
+                    <x-table.cell-head>
+                        {{ __('New Status') }}
+                    </x-table.cell-head>
+                </x-slot:head>
+                @foreach($logs as $log)
+                    <x-table.row>
+                        <x-table.cell>
+                            {{ $log->created_at->format('Y-m-d H:i') }}
+                        </x-table.cell>
+                        <x-table.cell>
+                            {{ $log->old_status }}
+                        </x-table.cell>
+                        <x-table.cell>
+                            {{ $log->new_status }}
+                        </x-table.cell>
+                    </x-table.row>
+                @endforeach
+            </x-table>
+            {{ $logs->links() }}
+            @else
+            <p class="font-semibold">
+                {{ __('There are currently no logs') }}
+            </p>
+        @endif
     </div>
 </div>
