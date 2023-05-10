@@ -3,5 +3,5 @@
         {{ __('Contact Details') }}
     </x-slot:title>
 
-    <livewire:contact-details.edit></livewire:contact-details.edit>
+    <livewire:contact-details.edit/>
 </x-app-layout>

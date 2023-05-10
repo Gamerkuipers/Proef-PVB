@@ -7,7 +7,7 @@
             </div>
 
             <a class="text-lg font-medium underline text-gray-900/60 cursor-pointer hover"
-               href="{{ route('assignment.index') }}">
+               href="{{ route('dashboard.assignment.index') }}">
                 back
             </a>
         </div>
@@ -42,8 +42,12 @@
                 <x-dashboard.text>{{ $assignment->email }}</x-dashboard.text>
             </x-dashboard.section>
             <x-dashboard.section>
-                <x-dashboard.text-label>{{ __('Phone number') }}</x-dashboard.text-label>
-                <x-dashboard.text>{{ $assignment->getPhoneNumbersString() }}</x-dashboard.text>
+                <x-dashboard.text-label>{{ __('Phone numbers') }}</x-dashboard.text-label>
+                <div class="flex gap-x-2">
+                    @foreach($assignment->phone_numbers as $phoneNumber)
+                        <a class="underline cursor-pointer text-blue-400 hover:text-blue-700" href="tel:{{ $phoneNumber }}">{{ $phoneNumber }},</a>
+                    @endforeach
+                </div>
             </x-dashboard.section>
             <x-dashboard.section>
                 <x-dashboard.text-label>{{ __('About the company') }}</x-dashboard.text-label>
@@ -61,28 +65,36 @@
                 <x-dashboard.text-label>{{ __('Examples') }}</x-dashboard.text-label>
 
                 <div class="space-y-1 flex flex-col">
-                    @foreach($assignment->examples as $example)
+                    @forelse($assignment->examples as $example)
                         <a class="text-blue-500 underline select-none" target="_blank"
                            href="{{ $example }}">{{ $example }}</a>
-                    @endforeach
+                    @empty
+                        <p>
+                            {{ __('No examples') }}
+                        </p>
+                    @endforelse
                 </div>
             </x-dashboard.section>
         </x-dashboard.field>
         <x-dashboard.field class="col-span-3">
             <x-dashboard.section>
-                <x-dashboard.text-label>{{ __('Files') }}</x-dashboard.text-label>
+                <x-dashboard.text-label>{{ __('Images') }}</x-dashboard.text-label>
 
                 <div class="grid grid-flow-col gap-x-4 overflow-auto w-full sm:w-96">
-                    @foreach($assignment->getImages() as $image)
+                    @forelse($assignment->getImages() as $image)
                         <a href="{{ asset("storage/$image") }}" target="_blank"
                            class="cursor-pointer w-32">
                             <img src="{{ asset("storage/$image") }}" alt="">
                         </a>
-                    @endforeach
+                    @empty
+                        <p>
+                            {{ __('No images') }}
+                        </p>
+                    @endforelse
                 </div>
             </x-dashboard.section>
         </x-dashboard.field>
     </div>
-    <livewire:assignment.students :assignment="$assignment"></livewire:assignment.students>
-    <livewire:assignment.logs :assignment="$assignment"></livewire:assignment.logs>
+    <livewire:assignment.students :assignment="$assignment"/>
+    <livewire:assignment.logs :assignment="$assignment"/>
 </x-app-layout>

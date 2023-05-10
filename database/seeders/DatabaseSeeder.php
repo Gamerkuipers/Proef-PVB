@@ -55,6 +55,6 @@ class DatabaseSeeder extends Seeder
         ContactDetails::factory(3)->create();
 
         // seed test posts
-        Post::factory(10)->create();
+        Post::factory(30)->create();
     }
 }

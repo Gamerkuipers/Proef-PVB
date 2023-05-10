@@ -5,13 +5,13 @@
         </h2>
         <nav class="xl:space-y-4">
             <x-nav.dashboard.group>
-                <x-nav.dashboard.item route="assignment.index">
+                <x-nav.dashboard.item route="dashboard.assignment.index">
                     <x-slot:icon>
                         <x-icon.assignments class="h-7 w-7"></x-icon.assignments>
                     </x-slot:icon>
                     {{ __('Assignments') }}
                 </x-nav.dashboard.item>
-                <x-nav.dashboard.item route="post.index">
+                <x-nav.dashboard.item route="dashboard.post.index">
                     <x-slot:icon>
                         <x-icon.posts class="h-7 w-7"></x-icon.posts>
                     </x-slot:icon>
@@ -23,13 +23,13 @@
                 <x-nav.dashboard.head>
                     {{ __('Content') }}
                 </x-nav.dashboard.head>
-                <x-nav.dashboard.item route="generalInformation.index">
+                <x-nav.dashboard.item route="dashboard.generalInformation.index">
                     <x-slot:icon>
                         <x-icon.general-information class="h-7 w-7"></x-icon.general-information>
                     </x-slot:icon>
                     {{ __('General information') }}
                 </x-nav.dashboard.item>
-                <x-nav.dashboard.item route="contactDetails.index">
+                <x-nav.dashboard.item route="dashboard.contactDetails.index">
                     <x-slot:icon>
                         <x-icon.contact-details class="h-7 w-7"></x-icon.contact-details>
                     </x-slot:icon>

@@ -37,10 +37,10 @@ class Edit extends Component
         $this->validate();
 
         if($updater->update($this->generalInformation)) {
-            return $this->flashSuccess(route('generalInformation.index'), __('General information saved'));
+            return $this->flashSuccess(route('dashboard.generalInformation.index'), __('General information saved'));
         };
 
         $this->alertError(__('Failed to save general information'));
-        return $this->addError('general', __('Something went wrong. Try again later.'));
+        return $this->addError('general', __('Something went wrong, try again later.'));
     }
 }

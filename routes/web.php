@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Models\WebContent;
+use App\Policies\PostPolicy;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +23,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/dashboard', fn() => to_route('assignment.index'))->name('dashboard');
+Route::get('/dashboard', fn() => to_route('dashboard.assignment.index'))->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+
+
+Route::group([
+    'middleware' => 'auth',
+    'prefix' => 'dashboard',
+    'as' => 'dashboard.',
+],function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -38,9 +45,7 @@ Route::middleware('auth')->group(function () {
         'controller' => AssignmentController::class,
     ], function () {
         Route::get('/', 'index')->name('index');
-        Route::prefix('{assignment}')->group(function () {
-            Route::get('/', 'show')->name('show');
-        });
+        Route::get('/{assignment}', 'show')->name('show');
     });
 
     /**
@@ -52,7 +57,7 @@ Route::middleware('auth')->group(function () {
         'controller' => GeneralInformationController::class
     ], function () {
         Route::get('/', 'index')->name('index');
-        Route::get('/edit', 'edit')->can('update', WebContent::class)->name('edit');
+        Route::get('/edit', 'edit')->name('edit');
     });
 
     Route::group([
@@ -71,7 +76,8 @@ Route::middleware('auth')->group(function () {
     ], function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
-        Route::get('/edit', 'edit')->name('edit');
+        Route::get('/{post}', 'show')->name('show');
+        Route::get('/{post}/edit', 'edit')->name('edit');
     });
 });
 

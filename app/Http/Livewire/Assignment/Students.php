@@ -93,8 +93,8 @@ class Students extends Component
 
             return null;
         }
-        $this->alertError(__('Something went wrong. Try again later'));
-        return $this->addError('general', __('Something went wrong. Try again later'));
+        $this->alertError(__('Something went wrong, try again later.'));
+        return $this->addError('general', __('Something went wrong, try again later.'));
     }
 
     public function deleteStudent(DeleteStudentFromAssignment $deletor, Assigned $assigned)

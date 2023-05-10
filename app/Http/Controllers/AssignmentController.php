@@ -8,6 +8,11 @@ use Illuminate\View\View;
 
 class AssignmentController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Assignment::class, 'assignment');
+    }
+
     public function index(): View
     {
         return view('assignment.index', [

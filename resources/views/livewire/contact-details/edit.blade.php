@@ -1,7 +1,7 @@
 <div>
     <x-form class="max-w-7xl" wire:submit.prevent="save">
         <x-dashboard.action-group>
-            <x-link-button-danger :href="route('contactDetails.index')">
+            <x-link-button-danger :href="route('dashboard.contactDetails.index')">
                 {{ __('Cancel') }}
             </x-link-button-danger>
             <x-form.submit>

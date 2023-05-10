@@ -23,7 +23,7 @@
         </x-slot:head>
         {{-- temporary --}}
         @foreach($assignments as $assignment)
-            <x-table.row x-data @click="location = '{{ route('assignment.show', $assignment) }}'">
+            <x-table.row x-data @click="location = '{{ route('dashboard.assignment.show', $assignment) }}'">
                 <x-table.cell>
                     {{ $assignment->name }}
                 </x-table.cell>

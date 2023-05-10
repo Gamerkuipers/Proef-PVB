@@ -39,10 +39,10 @@ class Edit extends Component
 
         if($updater->updateMany($this->contactDetails))
         {
-            return $this->flashSuccess(route('contactDetails.index'), __('Contact details saved'));
+            return $this->flashSuccess(route('dashboard.contactDetails.index'), __('Contact details saved'));
         }
 
         $this->alertError(__('Failed to save contact details'));
-        return $this->addError('general', __('Something went wrong. Try again later.'));
+        return $this->addError('general', __('Something went wrong, try again later.'));
     }
 }

@@ -5,7 +5,7 @@
 
     <div class="flex justify-end">
         @can('update', \App\Models\WebContent::class)
-            <x-link-button :href="route('generalInformation.edit')">
+            <x-link-button :href="route('dashboard.generalInformation.edit')">
                 {{ __('Edit') }}
             </x-link-button>
         @endcan

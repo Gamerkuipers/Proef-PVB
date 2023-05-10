@@ -5,7 +5,7 @@
 
     <x-dashboard.action-group>
         @can('update', \App\Models\ContactDetails::class)
-            <x-link-button :href="route('contactDetails.edit')">
+            <x-link-button :href="route('dashboard.contactDetails.edit')">
                 {{ __('Edit') }}
             </x-link-button>
         @endcan

@@ -75,7 +75,7 @@ class Create extends Component
             return;
         };
 
-        $this->addError('general', __('Something went wrong. Try again later.'));
-        $this->alertError(__('Something went wrong. Try again later.'));
+        $this->addError('general', __('Something went wrong, try again later.'));
+        $this->alertError(__('Something went wrong, try again later.'));
     }
 }

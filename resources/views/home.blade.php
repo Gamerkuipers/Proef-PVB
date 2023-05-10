@@ -9,18 +9,14 @@
             <div class="flex justify-center">
                 <div class="bg-white h-full w-2/3 shadow-md rounded-lg p-4 space-y-2">
                     <div class="font-semibold text-xl">
-                        An Awesome message
+                        {{ $post->title }}
                     </div>
-                    <p class="text-sm h-36 overflow-hidden text-ellipsis">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ullamcorper vestibulum nisl.
-                        Suspendisse fermentum gravida lacus, eget tristique lectus pharetra sed. Morbi ut malesuada
-                        eros, ut euismod odio. Nullam imperdiet pretium enim at pellentesque. Phasellus et elit ut nisl
-                        feugiat faucibus ut sit amet dui. Etiam nec metus eu metus dapibus ullamcorper. Pellentesque
-                        euismod urna at purus cursus eleifend. Vivamus scelerisque maximus eros tempus finibus. Sed eget
-                        dignissim lectus, sed sollicitudin diam. Aliquam erat volutpat. Sed tempor eget velit sed
-                        iaculis. Curabitur vulputate euismod lobortis. Duis ut magna id erat ultrices tincidunt in in
-                        arcu. Curabitur commodo lectus convallis, volutpat purus at, egestas ex.
-                    </p>
+                    <p class="text-sm max-h-36 overflow-hidden text-ellipsis">{{ $post->body }}</p>
+                    <div class="flex justify-end text-sm text-blue-400 underline">
+                        <a class="cursor-pointer hover:text-blue-700" href="">
+                            {{ __('More posts') }}
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
