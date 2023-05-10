@@ -12,11 +12,6 @@
                         {{ $post->title }}
                     </div>
                     <p class="text-sm max-h-36 overflow-hidden text-ellipsis">{{ $post->body }}</p>
-                    <div class="flex justify-end text-sm text-blue-400 underline">
-                        <a class="cursor-pointer hover:text-blue-700" href="">
-                            {{ __('More posts') }}
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
