@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ContactDetails;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,6 +18,10 @@ return new class extends Migration
             $table->string('content');
             $table->timestamps();
         });
+
+        foreach (config('default-information.contact') as $contact) {
+            ContactDetails::create($contact);
+        }
     }
 
     /**

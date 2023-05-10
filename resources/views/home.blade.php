@@ -5,16 +5,18 @@
             <img src="{{ asset('img/landing-image.jpeg') }}" alt="{{ __('Landing Image') }}"
                  class="object-cover h-full w-full -z-10">
         </div>
-        <div class="grid lg:grid-cols-2 w-full h-full z-10 max-w-7xl mx-auto">
-            <div class="flex justify-center">
-                <div class="bg-white h-full w-2/3 shadow-md rounded-lg p-4 space-y-2">
-                    <div class="font-semibold text-xl">
-                        {{ $post->title }}
+        @isset($post)
+            <div class="grid lg:grid-cols-2 w-full h-full z-10 max-w-7xl mx-auto">
+                <div class="flex justify-center">
+                    <div class="bg-white h-full w-2/3 shadow-md rounded-lg p-4 space-y-2">
+                        <div class="font-semibold text-xl">
+                            {{ $post->title }}
+                        </div>
+                        <p class="text-sm max-h-36 overflow-hidden text-ellipsis">{{ $post->body }}</p>
                     </div>
-                    <p class="text-sm max-h-36 overflow-hidden text-ellipsis">{{ $post->body }}</p>
                 </div>
             </div>
-        </div>
+        @endisset
     </div>
 
     {{-- General Information --}}
