@@ -22,7 +22,7 @@
                                           :placeholder="__('Student Name')"></x-form.input-cluster>
                     <x-form.input-cluster for="start_date" :label="__('Start Date')"
                                           wire:model.lazy="start_date"
-                                          :min="$this->getMinStartDate()"
+                                          :min="\Carbon\Carbon::now()->format('Y-m-d')"
                                           class="max-w-xl" type="date"></x-form.input-cluster>
                     <x-form.input-cluster for="end_date" :label="__('End Date')"
                                           wire:model.lazy="end_date"
@@ -33,7 +33,6 @@
                 </div>
             </x-form>
         </div>
-
 
         @if($assigneds->isNotEmpty())
             <x-table>

@@ -15,17 +15,16 @@
                     <x-dashboard.text-label class="xl:!text-2xl">{{ $contact->name }}</x-dashboard.text-label>
                     <div class="lg:pl-4 pl-2 space-y-2">
                         <x-form.input-cluster wire:model="contactDetails.{{ $index }}.name"
-                                              for="contact-{{ $index }}-name" :label="__('Title')"
+                                              for="contactDetails.{{ $index }}.name" :label="__('Title')"
                                               :placeholder="__('Name of contact detail')"/>
 
                         <x-form.input-cluster wire:model="contactDetails.{{ $index }}.content"
-                                              for="contact-{{ $index }}-content"
+                                              for="contactDetails.{{ $index }}.content"
                                               :label="__('Content')"
                                               :placeholder="__('The general information')"/>
                     </div>
                 </div>
             @endforeach
-
         </div>
     </x-form>
 </div>

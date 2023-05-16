@@ -25,8 +25,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', fn() => to_route('dashboard.assignment.index'))->name('dashboard');
 
-
-
 Route::group([
     'middleware' => 'auth',
     'prefix' => 'dashboard',

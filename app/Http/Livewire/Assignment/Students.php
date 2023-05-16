@@ -33,7 +33,7 @@ class Students extends Component
         return [
             'student' => ['required', 'string', 'max:255'],
             'start_date' => ['required', 'date', 'after:' . $this->minStartDate],
-            'end_date' => ['date', 'after:start_date', 'before:' . $this->maxEndDate],
+            'end_date' => ['required', 'date', 'after:start_date', 'before:' . $this->maxEndDate],
         ];
     }
 
@@ -93,17 +93,9 @@ class Students extends Component
 
             return null;
         }
-        $this->alertError(__('Something went wrong, try again later.'));
-        return $this->addError('general', __('Something went wrong, try again later.'));
-    }
 
-    public function deleteStudent(DeleteStudentFromAssignment $deletor, Assigned $assigned)
-    {
-        try {
-            $deletor->delete($assigned);
-            //show success
-        } catch(Exception $exception) {
-            // show error
-        }
+        $this->alertError(__('Something went wrong, try again later.'));
+
+        return $this->addError('general', __('Something went wrong, try again later.'));
     }
 }

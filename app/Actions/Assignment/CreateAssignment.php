@@ -22,7 +22,7 @@ class CreateAssignment
             'phone_numbers.*' => ['string', 'max:255'],
         ])->validateWithBag('assignment');
 
-        $assignment->status = AssignmentStatusses::OPEN->name;
+        $assignment->status = AssignmentStatusses::OPEN->value;
 
         return DB::transaction(fn() => $assignment->save());
     }

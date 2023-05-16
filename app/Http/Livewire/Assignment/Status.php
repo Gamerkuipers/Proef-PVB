@@ -32,7 +32,9 @@ class Status extends Component
     {
         $this->validate();
 
-        if((new ChangeStatusOfAssignment)->change($this->assignment, $value)) {
+        if ($this->assignment->isClean('status')) return;
+
+        if ((new ChangeStatusOfAssignment)->change($this->assignment, $value)) {
             $this->emit('addedStatus');
             $this->alertSuccess(__('New Status: :status', ['status' => $value]));
 

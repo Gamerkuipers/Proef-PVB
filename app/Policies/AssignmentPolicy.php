@@ -79,12 +79,4 @@ class AssignmentPolicy
     {
         //
     }
-
-    /**
-     * Determine whether the user can delete students from the assignment
-     */
-    public function deleteStudent(User $user, Assignment $assignment): bool
-    {
-        //
-    }
 }

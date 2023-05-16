@@ -27,11 +27,6 @@ class DatabaseSeeder extends Seeder
              'password' => Hash::make('test'),
          ]);
 
-         // seed the required web content with test data
-        WebContent::factory()->create([
-            'key' => 'general_information',
-        ]);
-
         // seed test assignments
         $assignments = Assignment::factory(30)->create();
 
@@ -42,17 +37,12 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-
         // seed fake logs for assignments
         foreach($assignments as $assignment) {
             AssignmentLog::factory(3)->create([
                 'assignment_id' => $assignment->id,
             ]);
         }
-
-
-        // seed test contact details
-        ContactDetails::factory(3)->create();
 
         // seed test posts
         Post::factory(30)->create();

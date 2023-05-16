@@ -16,7 +16,7 @@ class Create extends Component
 
     public Assignment $assignment;
 
-    public string $deadline = '';
+    public $deadline = '';
 
     public $images = [];
 
@@ -25,6 +25,7 @@ class Create extends Component
         'assignment.target_audience' => ['required', 'string', 'max:255'],
         'assignment.description' => ['required', 'string'],
         'deadline' => ['required', 'date'],
+        'assignment.deadline' => ['required', 'date'],
         'assignment.company_name' => ['required', 'string', 'max:255'],
         'assignment.company_description' => ['required', 'string'],
         'assignment.email' => ['required', 'email'],
@@ -46,6 +47,8 @@ class Create extends Component
     public function updatedDeadline()
     {
         $this->assignment->deadline = $this->deadline;
+
+        $this->validateOnly('deadline');
     }
 
     public function mount(): void
