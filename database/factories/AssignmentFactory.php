@@ -31,7 +31,7 @@ class AssignmentFactory extends Factory
                 $this->faker->phoneNumber(),
                 $this->faker->phoneNumber(),
             ],rand(1,3)),
-            'status' => $this->faker->randomElement(AssignmentStatusses::cases())->name,
+            'status' => $this->faker->randomElement(AssignmentStatusses::cases())->value,
         ];
     }
 }
