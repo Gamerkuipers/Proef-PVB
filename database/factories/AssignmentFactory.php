@@ -3,10 +3,11 @@
 namespace Database\Factories;
 
 use App\Enums\AssignmentStatusses;
+use App\Models\Assignment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Assignment>
+ * @extends Factory<Assignment>
  */
 class AssignmentFactory extends Factory
 {
