@@ -20,13 +20,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // seed a test user
-         User::factory()->create([
-             'name' => 'Test User',
-             'email' => 'test@test.nl',
-             'password' => Hash::make('test'),
-         ]);
-
         // seed test assignments
         $assignments = Assignment::factory(30)->create();
 
