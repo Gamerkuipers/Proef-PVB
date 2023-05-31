@@ -3,6 +3,7 @@
         {{ __('Assignments') }}
     </x-slot:title>
 
+    @if($assignments->isNotEmpty())
     <x-table>
         <x-slot:head>
             <x-table.cell-head>
@@ -48,4 +49,7 @@
         @endforeach
     </x-table>
     {{ $assignments->links() }}
+    @else
+        <p class="text-lg">{{ __('There are no assignments') }}</p>
+    @endif
 </x-app-layout>

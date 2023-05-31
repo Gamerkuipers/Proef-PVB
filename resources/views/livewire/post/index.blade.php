@@ -1,4 +1,5 @@
 <div class="space-y-6">
+    @if($posts->isNotEmpty())
     <x-table>
         <x-slot:head>
             <x-table.cell-head>
@@ -48,6 +49,9 @@
         @endforeach
     </x-table>
     {{ $posts->links() }}
+    @else
+        <p class="text-lg">{{ __('There are no posts') }}</p>
+    @endif
 
     <div>
         <h2 class="text-2xl font-bold">{{ __('Create Post') }}</h2>
