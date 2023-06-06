@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index(): View
     {
         return view('home', [
-            'post' => Post::orderByDesc('created_at')->limit(1)->first()
+            'posts' => Post::orderByDesc('created_at')->limit(4)->get()
         ]);
     }
 }
