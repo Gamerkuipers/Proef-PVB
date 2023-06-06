@@ -8,7 +8,7 @@
         <div class="grid lg:grid-cols-2 w-full h-full z-10 max-w-7xl mx-auto gap-8">
             @foreach($posts as $post)
                 <div class="flex justify-center">
-                    <div class="bg-white h-full shadow-md rounded-lg p-4 space-y-2">
+                    <div class="bg-white h-full shadow-md rounded-lg p-4 space-y-2 w-full">
                         <div class="font-semibold text-xl">
                             {{ $post->title }}
                         </div>
