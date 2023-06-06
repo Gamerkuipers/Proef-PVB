@@ -9,10 +9,10 @@
     </div>
 
     <div class="min-h-screen w-full flex justify-center items-center z-100">
-        <div class="max-w-7xl mx-auto">
-            <div class="bg-primary/50 rounded-lg backdrop-blur-sm p-10 space-y-6">
+        <div class="max-w-xs mx-auto">
+            <div class="bg-primary/50 rounded-lg backdrop-blur-sm p-10 space-y-6 w-full">
                 <x-application-logo class="h-16" />
-                <x-form class="text-white flex flex-col items-center gap-y-3 w-full" :action="route('login')">
+                <x-form class="text-white flex flex-col items-center gap-y-3" :action="route('login')">
                     <!-- Email -->
                     <x-form.input-cluster
                         for="email"
