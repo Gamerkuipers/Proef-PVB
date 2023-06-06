@@ -12,7 +12,7 @@
         <div class="space-y-6 divide-y-2 divide-gray-300 max-w-lg">
             @foreach($contactDetails as $index => $contact)
                 <div class="space-y-2">
-                    <x-dashboard.text-label class="xl:!text-2xl">{{ $contact->name }}</x-dashboard.text-label>
+                    <x-dashboard.text-label class="xl:!text-2xl break-words">{{ $contact->name }}</x-dashboard.text-label>
                     <div class="lg:pl-4 pl-2 space-y-2">
                         <x-form.input-cluster wire:model="contactDetails.{{ $index }}.name"
                                               for="contactDetails.{{ $index }}.name" :label="__('Title')"

@@ -14,7 +14,7 @@
     <x-dashboard.field>
         @foreach($contactDetails as $contact)
         <x-dashboard.section>
-            <x-dashboard.text-label>{{ $contact->name  }}:</x-dashboard.text-label>
+            <x-dashboard.text-label class="break-words">{{ $contact->name  }}:</x-dashboard.text-label>
             <x-dashboard.text>{{ $contact->content }}</x-dashboard.text>
         </x-dashboard.section>
         @endforeach
