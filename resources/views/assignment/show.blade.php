@@ -65,7 +65,7 @@
                 <x-dashboard.text-label>{{ __('Examples') }}</x-dashboard.text-label>
 
                 <div class="space-y-1 flex flex-col">
-                    @forelse($assignment->examples as $example)
+                    @forelse($assignment->examples ?? [] as $example)
                         <a class="text-blue-500 underline select-none" target="_blank"
                            href="{{ $example }}">{{ $example }}</a>
                     @empty
