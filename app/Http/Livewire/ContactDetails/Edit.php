@@ -23,6 +23,13 @@ class Edit extends Component
         'contactDetails.*.content' => ['required', 'string', 'max:255'],
     ];
 
+    protected $messages = [
+        'contactDetails.*.name.required' => 'The name cannot be empty.',
+        'contactDetails.*.name.max' => 'The name field must not be greater than 255 characters.',
+        'contactDetails.*.content.required' => 'The content cannot be empty.',
+        'contactDetails.*.content.max' => 'The content field must not be greater than 255 characters.',
+    ];
+
     public function render(): View
     {
         return view('livewire.contact-details.edit');
